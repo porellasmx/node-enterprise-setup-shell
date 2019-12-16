@@ -4,12 +4,13 @@
 
 const express = require('express');
 const isAuth = require('./middleware/checkAuth');
+const reportsAPI = require('../todo/routes/reports');
 
 const apiRoutes = () => {
   const router = express.Router();
   //Router level middleware router.use
   router.use(isAuth);
-  //router.use('YOUR DOMAIN ROUTS FILE');
+  router.use(reportsAPI);
 
   return router;
 };
