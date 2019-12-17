@@ -14,6 +14,10 @@ const config = {
     database_URL: process.env.MONGODB_URI_DEV,
     api: {
       prefix: '/api-dev'
+    },
+    aws: {
+      secretAccessKey: process.env.secretAccessKey,
+      accessKeyId: process.env.accessKeyId
     }
   },
   prod: {
@@ -21,6 +25,10 @@ const config = {
     database_URL: process.env.MONGODB_URI_PROD,
     api: {
       prefix: '/api'
+    },
+    aws: {
+      secretAccessKey: process.env.secretAccessKey,
+      accessKeyId: process.env.accessKeyId
     }
   }
 };
