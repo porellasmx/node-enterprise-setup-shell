@@ -7,7 +7,7 @@ class ReportService {
   }
 
   static createReport(req) {
-    const report = new Report({
+    return new Report({
       address: req.body.address,
       placeName: req.body.placeName,
       description: req.body.description,
@@ -22,7 +22,6 @@ class ReportService {
       country: req.body.country,
       image: req.file.originalname
     });
-    return report;
   }
 }
 
