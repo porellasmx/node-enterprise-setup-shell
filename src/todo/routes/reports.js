@@ -4,8 +4,14 @@
 
 const express = require('express');
 const router = express.Router();
-const reportsController = require('../controllers/todoController');
+const reportsController = require('../controllers/reportController');
+const upload = require('../../api/middleware/file-uploader');
 
 router.get('/reports', reportsController.getReports);
+router.post(
+  '/reports',
+  upload.array('image', 1),
+  reportsController.createReport
+);
 
 module.exports = router;
