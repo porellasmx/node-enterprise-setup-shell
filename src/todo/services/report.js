@@ -6,6 +6,10 @@ class ReportService {
     return Report.find();
   }
 
+  static getReport(req) {
+    return Report.findById({ _id: req.params.id });
+  }
+
   static createReport(req) {
     return new Report({
       address: req.body.address,
