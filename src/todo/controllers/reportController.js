@@ -35,5 +35,21 @@ module.exports = {
       }
       return err;
     }
+  },
+
+  deleteReport: async (req, res, next) => {
+    try {
+      const report = await reportService.deleteReport(req);
+      if (report.n > 0) {
+        return res.status(200).json({ message: 'Deletion successful!' });
+      } else {
+        return res.status(401).json({ message: 'Not authorized!' });
+      }
+    } catch (err) {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      return err;
+    }
   }
 };
