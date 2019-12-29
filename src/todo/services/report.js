@@ -23,6 +23,10 @@ class ReportService {
       image: req.file.originalname
     });
   }
+
+  static deleteReport(req) {
+    return Report.deleteOne({ _id: req.params.id });
+  }
 }
 
 module.exports = ReportService;
