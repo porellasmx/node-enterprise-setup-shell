@@ -8,6 +8,9 @@ const reportsController = require('../controllers/reportController');
 const upload = require('../../api/middleware/file-uploader');
 
 router.get('/reports', reportsController.getReports);
+
+router.get('/reports/:id', reportsController.getReport);
+
 router.post(
   '/reports',
   upload.array('image', 1),
