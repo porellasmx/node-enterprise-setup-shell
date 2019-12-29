@@ -18,6 +18,22 @@ module.exports = {
     }
   },
 
+  getReport: async (req, res, next) => {
+    try {
+      const report = await reportService.getReport(req);
+      if (report) {
+        res.status(200).json(report);
+      } else {
+        res.status(404).json({ message: 'Post not found!' });
+      }
+    } catch (err) {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      return err;
+    }
+  },
+
   createReport: async (req, res, next) => {
     try {
       const report = reportService.createReport(req);
